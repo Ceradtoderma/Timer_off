@@ -19,9 +19,11 @@ class Timer(QtWidgets.QWidget):
         self.ui.btn_h_plus.clicked.connect(lambda: self.btn_up(self.ui.le_hour))
         self.ui.btn_m_min.clicked.connect(lambda: self.btn_down(self.ui.le_min))
         self.ui.btn_m_plus.clicked.connect(lambda: self.btn_up(self.ui.le_min))
-        self.ui.btn_run.clicked.connect(self.run)
-        self.ui.btn_off.clicked.connect(self.off)
 
+        self.ui.btn_m_plus.pressed.connect(lambda: self.btn_up(self.ui.le_min))
+
+        self.ui.btn_run.clicked.connect(self.run)
+        self.ui.btn_off.clicked.connect(self.cancel)
         self.show()
 
     def check_data(self, cnt):
